@@ -43,8 +43,19 @@
 			<artifactId>zookeeper</artifactId>
 			<version>3.4.5</version>
 			<type>pom</type>
-		</dependency>  
-
+			<exclusions>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+			<type>pom</type>
+		</dependency>
 	</dependencies>
 	<modules>
 		<module>Provider</module>
@@ -52,4 +63,3 @@
 		<module>Sdk</module>
 	</modules>
 </project>
-         

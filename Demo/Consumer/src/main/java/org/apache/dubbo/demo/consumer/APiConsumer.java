@@ -15,7 +15,9 @@ public class APiConsumer {
 		// 10.创建服务引用对象实例
 		ReferenceConfig<GreetingService> referenceConfig = new ReferenceConfig<GreetingService>();
 		// 11.设置应用程序信息
-		referenceConfig.setApplication(new ApplicationConfig("first-dubbo-consumer"));
+		ApplicationConfig applicationConfig = new ApplicationConfig("first-dubbo-consumer");
+		applicationConfig.setQosPort(33333);
+		referenceConfig.setApplication(applicationConfig);
 		// 12.设置服务注册中心
 		referenceConfig.setRegistry(new RegistryConfig("zookeeper://127.0.0.1:2181"));
 		
@@ -27,9 +29,9 @@ public class APiConsumer {
 		referenceConfig.setTimeout(5000);
 		
 		// 14.设置自定义负载均衡策略与集群容错策略
-		 referenceConfig.setLoadbalance("myroundrobin");
-		 referenceConfig.setCluster("myCluster");
-		 RpcContext.getContext().set("ip", "30.10.67.231");
+		/*referenceConfig.setLoadbalance("myroundrobin");
+		referenceConfig.setCluster("myCluster");
+		RpcContext.getContext().set("ip", "30.10.67.231");*/
 
 		// 15.设置服务分组与版本
 		referenceConfig.setVersion("1.0.0");

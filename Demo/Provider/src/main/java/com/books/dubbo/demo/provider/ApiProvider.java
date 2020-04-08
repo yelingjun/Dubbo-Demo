@@ -17,7 +17,8 @@ public class ApiProvider {
 		serviceConfig.setApplication(new ApplicationConfig("first-dubbo-provider"));
 
 		// 3.设置服务注册中心信息
-		RegistryConfig registryConfig = new RegistryConfig("zookeeper://127.0.0.1:2181");
+		//RegistryConfig registryConfig = new RegistryConfig("zookeeper://127.0.0.1:2181");
+		RegistryConfig registryConfig = new RegistryConfig("zookeeper://172.17.0.30:2181");
 		serviceConfig.setRegistry(registryConfig);
 		// 4.设置接口与实现类
 		serviceConfig.setInterface(GreetingService.class);

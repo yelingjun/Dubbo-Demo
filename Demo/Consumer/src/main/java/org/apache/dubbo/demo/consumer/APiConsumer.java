@@ -7,8 +7,10 @@ import org.apache.dubbo.rpc.RpcContext;
 
 import com.books.dubbo.demo.api.GreetingService;
 
+import java.io.IOException;
+
 public class APiConsumer {
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, IOException {
 		
 		
 		
@@ -28,6 +30,8 @@ public class APiConsumer {
 		referenceConfig.setInterface(GreetingService.class);
 		referenceConfig.setTimeout(5000);
 
+		//referenceConfig.setStub("com.books.dubbo.demo.api.GreetingServiceStub");
+
 		
 		// 14.设置自定义负载均衡策略与集群容错策略
 		/*referenceConfig.setLoadbalance("myroundrobin");
@@ -38,6 +42,7 @@ public class APiConsumer {
 		referenceConfig.setVersion("1.0.0");
 		referenceConfig.setGroup("dubbo");
 
+		referenceConfig.setMock("return");
 		// 16.引用服务
 		GreetingService greetingService = referenceConfig.get();
 
@@ -46,7 +51,7 @@ public class APiConsumer {
 
 		// 18调用服务
 		System.out.println(greetingService.sayHello("world"));
-		
-		Thread.currentThread().join();
+		System.in.read();
+		//Thread.currentThread().join();
 	}
 }

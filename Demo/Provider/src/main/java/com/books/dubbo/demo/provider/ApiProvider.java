@@ -27,6 +27,8 @@ public class ApiProvider {
 		serviceConfig.setVersion("1.0.0");
 		serviceConfig.setGroup("dubbo");
 
+		serviceConfig.setStub(true);
+
 		// 6.设置线程池策略
 //		HashMap<String, String> parameters = new HashMap<>();
 //		parameters.put("threadpool", "mythreadpool");
